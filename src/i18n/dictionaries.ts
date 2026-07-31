@@ -22,6 +22,9 @@ export interface Dictionary {
   present: string;
   contactHeading: string;
   contactIntro: string;
+  contactEmailLabel: string;
+  contactLinkedInLabel: string;
+  contactPhoneLabel: string;
   monthLabels: {
     "2019-02": string;
     "2019-03": string;
@@ -57,7 +60,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
     until: "hasta",
     present: "Presente",
     contactHeading: "Contacto",
-    contactIntro: "¿Tenés un proyecto o querés conversar? Escribime.",
+    contactIntro: "¿Tenés un proyecto o querés conversar? Escribime o conectá por LinkedIn.",
+    contactEmailLabel: "Email",
+    contactLinkedInLabel: "LinkedIn",
+    contactPhoneLabel: "Teléfono",
     monthLabels: {
       "2019-02": "Feb 2019",
       "2019-03": "Mar 2019",
@@ -91,7 +97,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
     until: "to",
     present: "Present",
     contactHeading: "Contact",
-    contactIntro: "Have a project or want to chat? Email me.",
+    contactIntro: "Have a project or want to chat? Email me or connect on LinkedIn.",
+    contactEmailLabel: "Email",
+    contactLinkedInLabel: "LinkedIn",
+    contactPhoneLabel: "Phone",
     monthLabels: {
       "2019-02": "Feb 2019",
       "2019-03": "Mar 2019",
@@ -125,7 +134,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
     until: "até",
     present: "Atual",
     contactHeading: "Contato",
-    contactIntro: "Tem um projeto ou quer conversar? Me escreva.",
+    contactIntro: "Tem um projeto ou quer conversar? Me escreva ou conecte no LinkedIn.",
+    contactEmailLabel: "Email",
+    contactLinkedInLabel: "LinkedIn",
+    contactPhoneLabel: "Telefone",
     monthLabels: {
       "2019-02": "Fev 2019",
       "2019-03": "Mar 2019",
