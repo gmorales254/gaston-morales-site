@@ -111,4 +111,26 @@ export const projects: Project[] = [
     },
     confidential: true,
   },
+  {
+    id: "360-healthy-zone",
+    title: "360 Healthy Zone",
+    description: {
+      es: "Plataforma de wellness que conecta a personas que buscan un estilo de vida más saludable con expertos en fitness y nutrición. Guías personalizadas, planes de entrenamiento y alimentación, y acompañamiento para alcanzar metas concretas.",
+      en: "Wellness platform that connects people seeking a healthier lifestyle with fitness and nutrition experts. Personalized guidance, training and meal plans, and support to reach concrete goals.",
+      pt: "Plataforma de wellness que conecta pessoas em busca de um estilo de vida mais saudável com especialistas em fitness e nutrição. Orientação personalizada, planos de treino e alimentação, e acompanhamento para atingir metas concretas.",
+    },
+    techDescription: {
+      es: "Landing y plataforma en Next.js con estilos en Tailwind CSS y estado client-side con Zustand.",
+      en: "Landing and platform built with Next.js, Tailwind CSS styling, and client-side state via Zustand.",
+      pt: "Landing e plataforma em Next.js com estilos em Tailwind CSS e estado client-side com Zustand.",
+    },
+    stack: ["Next.js", "Tailwind CSS", "Zustand"],
+    image: "/projects/360-healthy-zone.jpg",
+    imageAlt: {
+      es: "Entrenador guiando una rutina de flexiones en un gimnasio",
+      en: "Trainer guiding a push-up workout routine in a gym",
+      pt: "Treinador orientando uma rotina de flexões em uma academia",
+    },
+    demoUrl: "https://www.360healthyzone.com/",
+  },
 ];
