@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowUpRight, Code2 } from "lucide-react";
 import { useLocale } from "@/components/providers/LocaleProvider";
 import { cn } from "@/lib/utils";
@@ -7,7 +8,18 @@ import type { ProjectCardProps } from "@/types/project";
 
 export function ProjectCard({ project, className }: ProjectCardProps) {
   const { locale, dictionary } = useLocale();
-  const { title, description, stack, demoUrl, repoUrl } = project;
+  const {
+    title,
+    description,
+    techDescription,
+    stack,
+    image,
+    imageAlt,
+    demoUrl,
+    repoUrl,
+    confidential,
+  } = project;
+  const displayTitle = typeof title === "string" ? title : title[locale];
 
   return (
     <article
@@ -16,13 +28,38 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
         className
       )}
     >
+      {image ? (
+        <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-200 dark:bg-zinc-800">
+          <Image
+            src={image}
+            alt={imageAlt?.[locale] ?? displayTitle}
+            fill
+            sizes="(max-width: 768px) 100vw, 48rem"
+            className="object-cover object-center"
+            priority={false}
+          />
+        </div>
+      ) : null}
+
       <div className="flex flex-col gap-2">
-        <h3 className="text-xl font-semibold tracking-tight text-foreground">
-          {title}
-        </h3>
+        <div className="flex flex-wrap items-center gap-2">
+          <h3 className="text-xl font-semibold tracking-tight text-foreground">
+            {displayTitle}
+          </h3>
+          {confidential ? (
+            <span className="rounded px-1.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-red-600 dark:text-red-400">
+              {dictionary.confidentialLabel}
+            </span>
+          ) : null}
+        </div>
         <p className="max-w-prose text-base leading-relaxed text-muted">
           {description[locale]}
         </p>
+        {techDescription ? (
+          <p className="max-w-prose text-sm leading-relaxed text-muted">
+            {techDescription[locale]}
+          </p>
+        ) : null}
       </div>
 
       <ul className="flex flex-wrap gap-2" aria-label={dictionary.stackLabel}>
@@ -48,7 +85,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               )}
             >
-              {dictionary.liveDemo}
+              {dictionary.viewProject}
               <ArrowUpRight className="size-3.5 shrink-0 opacity-80" aria-hidden />
               <span className="sr-only"> {dictionary.opensNewTab}</span>
             </a>

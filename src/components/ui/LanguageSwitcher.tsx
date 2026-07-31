@@ -71,8 +71,9 @@ export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
             tabIndex={selected ? 0 : -1}
             lang={option.htmlLang}
             onClick={() => setLocale(option.code)}
+            aria-label={option.label}
             className={cn(
-              "inline-flex min-h-10 items-center gap-1.5 rounded px-2.5 py-1.5 text-sm font-medium transition-colors",
+              "inline-flex min-h-10 items-center gap-1.5 rounded px-2 py-1.5 text-sm font-medium transition-colors sm:px-2.5",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
               selected
                 ? "bg-emerald-700 text-emerald-50 dark:bg-emerald-400 dark:text-emerald-950"
@@ -82,7 +83,7 @@ export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
             <span aria-hidden className="text-base leading-none">
               {option.flag}
             </span>
-            <span>{option.label}</span>
+            <span className="hidden sm:inline">{option.label}</span>
           </button>
         );
       })}

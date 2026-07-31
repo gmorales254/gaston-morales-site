@@ -13,8 +13,9 @@ export interface Dictionary {
   projectsHeading: string;
   projectsIntro: string;
   stackLabel: string;
-  liveDemo: string;
+  viewProject: string;
   opensNewTab: string;
+  confidentialLabel: string;
   experienceHeading: string;
   experienceIntro: string;
   until: string;
@@ -47,8 +48,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
     projectsIntro:
       "Selección alineada a Next.js, React Native, TypeScript y WCAG 2.2.",
     stackLabel: "Stack técnico",
-    liveDemo: "Demo en vivo",
+    viewProject: "Ver proyecto",
     opensNewTab: "(se abre en una pestaña nueva)",
+    confidentialLabel: "CONFIDENTIAL",
     experienceHeading: "Trayectoria Profesional",
     experienceIntro:
       "Tech Leader & Full Stack / Mobile Developer. Liderazgo técnico, producto accesible y entrega en web y mobile.",
@@ -80,8 +82,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
     projectsIntro:
       "A selection focused on Next.js, React Native, TypeScript, and WCAG 2.2.",
     stackLabel: "Tech stack",
-    liveDemo: "Live demo",
+    viewProject: "View project",
     opensNewTab: "(opens in a new tab)",
+    confidentialLabel: "CONFIDENTIAL",
     experienceHeading: "Career Path",
     experienceIntro:
       "Tech Leader & Full Stack / Mobile Developer. Technical leadership, accessible products, and delivery across web and mobile.",
@@ -113,8 +116,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
     projectsIntro:
       "Seleção alinhada a Next.js, React Native, TypeScript e WCAG 2.2.",
     stackLabel: "Stack técnico",
-    liveDemo: "Demo ao vivo",
+    viewProject: "Ver projeto",
     opensNewTab: "(abre em uma nova aba)",
+    confidentialLabel: "CONFIDENTIAL",
     experienceHeading: "Trajetória Profissional",
     experienceIntro:
       "Tech Leader & Full Stack / Mobile Developer. Liderança técnica, produto acessível e entrega em web e mobile.",
