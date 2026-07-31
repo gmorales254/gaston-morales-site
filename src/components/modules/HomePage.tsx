@@ -1,10 +1,29 @@
 "use client";
 
+import { Mail, Phone } from "lucide-react";
 import { CareerPath } from "@/components/modules/CareerPath";
 import { ProjectCard } from "@/components/modules/ProjectCard";
 import { useLocale } from "@/components/providers/LocaleProvider";
 import { projects } from "@/data/projects";
-import { CONTACT_EMAIL } from "@/lib/site";
+import {
+  CONTACT_EMAIL,
+  CONTACT_LINKEDIN,
+  CONTACT_PHONE,
+  CONTACT_PHONE_DISPLAY,
+} from "@/lib/site";
+
+function LinkedInIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden
+      className={className}
+    >
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  );
+}
 
 export function HomePage() {
   const { dictionary } = useLocale();
@@ -89,12 +108,49 @@ export function HomePage() {
           {dictionary.contactHeading}
         </h2>
         <p className="mt-2 max-w-prose text-muted">{dictionary.contactIntro}</p>
-        <a
-          href={`mailto:${CONTACT_EMAIL}`}
-          className="mt-8 inline-flex items-center rounded-md bg-emerald-700 px-5 py-2.5 text-sm font-medium text-emerald-50 hover:bg-emerald-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:bg-emerald-400 dark:text-emerald-950 dark:hover:bg-emerald-300"
-        >
-          {CONTACT_EMAIL}
-        </a>
+        <ul className="mt-8 flex list-none flex-col gap-3 p-0">
+          <li>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="inline-flex items-center gap-2 text-sm font-medium text-emerald-800 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:text-emerald-300"
+            >
+              <Mail className="size-4 shrink-0" aria-hidden />
+              <span>
+                <span className="sr-only">{dictionary.contactEmailLabel}: </span>
+                {CONTACT_EMAIL}
+              </span>
+            </a>
+          </li>
+          <li>
+            <a
+              href={CONTACT_LINKEDIN}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-emerald-800 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:text-emerald-300"
+            >
+              <LinkedInIcon className="size-4 shrink-0" />
+              <span>
+                {dictionary.contactLinkedInLabel}
+                <span className="sr-only"> {dictionary.opensNewTab}</span>
+              </span>
+              <span className="font-normal text-muted">
+                linkedin.com/in/gaston-morales
+              </span>
+            </a>
+          </li>
+          <li>
+            <a
+              href={`tel:${CONTACT_PHONE}`}
+              className="inline-flex items-center gap-2 text-sm font-medium text-emerald-800 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:text-emerald-300"
+            >
+              <Phone className="size-4 shrink-0" aria-hidden />
+              <span>
+                <span className="sr-only">{dictionary.contactPhoneLabel}: </span>
+                {CONTACT_PHONE_DISPLAY}
+              </span>
+            </a>
+          </li>
+        </ul>
       </section>
     </div>
   );
